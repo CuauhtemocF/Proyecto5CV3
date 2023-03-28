@@ -1,4 +1,5 @@
-package mx.ipn.escom.compiladores;
+
+package interprete;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class Interprete {
         ejecutar(new String(bytes, Charset.defaultCharset()));
 
         // Se indica que existe un error
-        if(existenErrores) System.exit(65);
+        if(existenErrores) System.exit(65);             
     }
 
     private static void ejecutarPrompt() throws IOException{
@@ -52,6 +53,8 @@ public class Interprete {
 
         for(Token token : tokens){
             System.out.println(token);
+            System.out.println(source);
+            
         }
     }
 
@@ -70,5 +73,5 @@ public class Interprete {
         );
         existenErrores = true;
     }
-
+    
 }
