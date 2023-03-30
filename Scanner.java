@@ -341,9 +341,9 @@ public class Scanner {
                                         estado = n+1;
                                         break;
                                     }
-                                    break;
+                                   
                                 }
-                                
+
                             }
 
                         }
