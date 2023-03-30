@@ -71,7 +71,7 @@ public class Scanner {
 
     List<Token> scanTokens() {
         //Aquí va el corazón del scanner.
-
+        boolean otro=false;
         int num_c = 0, estado = 0, lguardado =0;
 
 //        for (int i = 0; i < source.length(); i++) {
@@ -94,623 +94,177 @@ public class Scanner {
                         break;
                     }
                     
-                    if (source.charAt(num_c) == '=') {
+                    if (source.charAt(num_c) == '>') {
                         num_c++;
-                        estado = 5;
+                        estado = 2;
                         break;
                     }  
                     
-                    if (source.charAt(num_c) == '>') {
+                    if (source.charAt(num_c) == '=') {
                         num_c++;
-                        estado = 7;
+                        estado = 3;
                         break;
                     }  
 
                     if (source.charAt(num_c) == '!') {
                         num_c++;
-                        estado = 10;
+                        estado = 4;
                         break;
                     }                     
 
                     if (source.charAt(num_c) == '(') {
+                        tokens.add(new Token(TipoToken.PAREN_IZQ, "", null, linea));
                         num_c++;
-                        estado = 13;
                         break;
                     } 
 
                     if (source.charAt(num_c) == ')') {
+                        tokens.add(new Token(TipoToken.PAREN_DER, "", null, linea));
                         num_c++;
-                        estado = 14;
                         break;
                     } 
 
                     if (source.charAt(num_c) == '{') {
+                        tokens.add(new Token(TipoToken.LLAVE_IZQ, "", null, linea));
                         num_c++;
-                        estado = 15;
                         break;
                     } 
 
                     if (source.charAt(num_c) == '}') {
+                        tokens.add(new Token(TipoToken.LLAVE_DER, "", null, linea));
                         num_c++;
-                        estado = 16;
                         break;
                     } 
 
                     if (source.charAt(num_c) == '\'') {
+                        tokens.add(new Token(TipoToken.COMILLA, "", null, linea));
                         num_c++;
-                        estado = 17;
                         break;
                     } 
 
                     if (source.charAt(num_c) == ';') {
+                        tokens.add(new Token(TipoToken.PUNTO_COMA, "", null, linea));
                         num_c++;
-                        estado = 18;
                         break;
                     } 
 
-                    if (source.charAt(num_c) == '/') {
+                    if (source.charAt(num_c) == 'y') {
                         num_c++;
-                        estado = 19;
+                        estado = 5;
                         break;
                     } 
 
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 23;
-                        break;
-                    } 
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
-
-
-                    if (source.charAt(num_c) == '>') {
-                        num_c++;
-                        estado = 6;
-                        break;
-                    } 
                     
 
                     break;
 
-                case 1:
-                    System.out.println("chi ");
-
-                    tokens.add(new Token(TipoToken.PUNTO, ".", null, linea));
-
-                    if (source.charAt(num_c) == '.') {
-
-                        estado = 1;
-                    }
-                    if (source.charAt(num_c) == '(') {
-                        tokens.add(new Token(TipoToken.PAREN_IZQ, ".", null, linea));
-                        estado = 2;
-                    }
-
-                    if (source.charAt(num_c) == ')') {
-                        tokens.add(new Token(TipoToken.PAREN_DER, ".", null, linea));
-                        estado = 3;
-                        break;
-                    }
-
-                    if (source.charAt(num_c) == '{') {
-                        tokens.add(new Token(TipoToken.LLAVE_IZQ, ".", null, linea));
-                        estado = 4;
-                    }
-
-                    if (source.charAt(num_c) == '}') {
-                        tokens.add(new Token(TipoToken.LLAVE_DER, ".", null, linea));
-                        estado = 5;
-
-                    }
-
-                    if (source.charAt(num_c) == ';') {
-                        tokens.add(new Token(TipoToken.PUNTO_COMA, ".", null, linea));
-                        estado = 7;
-                    }
-
-                    if (source.charAt(num_c) == '-') {
-                        tokens.add(new Token(TipoToken.GUION, ".", null, linea));
-                        estado = 8;
-                    }
-
-                    if (source.charAt(num_c) == '+') {
-                        tokens.add(new Token(TipoToken.MAS, ".", null, linea));
-                        estado = 9;
-                    }
-
-                    if (source.charAt(num_c) == '*') {
-                        tokens.add(new Token(TipoToken.ESTRELLA, ".", null, linea));
-                        estado = 10;
-                    }
-
-                    if (source.charAt(num_c) == '/') {
-                        tokens.add(new Token(TipoToken.GUION, ".", null, linea));
-                        estado = 11;
-                    }
-
-                    if (source.charAt(num_c) == '!') {
-                        tokens.add(new Token(TipoToken.NEGACION, ".", null, linea));
-                        estado = 12;
-                    }
-
+                   case 1:
+                    
                     if (source.charAt(num_c) == '=') {
-                        tokens.add(new Token(TipoToken.ASIGNAR, ".", null, linea));
-                        estado = 14;
-                    }
+                        tokens.add(new Token(TipoToken.MENOR_IGUAL, "", null, linea));
+                        num_c++;
+                        estado = 0;
+                        break;
+                    }    
+                    
 
-                    if (source.charAt(num_c) == '<') {
-                        tokens.add(new Token(TipoToken.MENOR_QUE, ".", null, linea));
-                        estado = 16;
-                    }
-
+                    
                     if (source.charAt(num_c) == '>') {
-                        tokens.add(new Token(TipoToken.MAYOR_QUE, ".", null, linea));
-                        estado = 18;
-                    }
-                    estado = 0;
-                    break;
+                        tokens.add(new Token(TipoToken.DIFERENTE, "", null, linea));                        
+                        estado = 0;
+                        num_c++;                        
+                        otro=false;
+                        break;
+                    } 
+                    
+                    else otro=true;
+                    
+                    if (otro) {
+                        tokens.add(new Token(TipoToken.MENOR_QUE, "", null, linea));                        
+                        estado = 0;
+                        otro=false;
+                        break;
+                    }  
+                    
+                    break;                    
+                    
+                   case 2:
+                    
+                    if (source.charAt(num_c) == '=') {
+                        tokens.add(new Token(TipoToken.MAYOR_IGUAL, "", null, linea));
+                        num_c++;
+                        estado = 0;
+                        otro=false;
+                        break;
+                    }    
+                    
+                    else otro=true;                      
 
-                case 3:
-                    if (source.charAt(num_c) == 'a') {
+                    if (otro) {
+                        tokens.add(new Token(TipoToken.MAYOR_QUE, "", null, linea));                        
+                        estado = 0;
+                        otro=false;
+                        break;
+                    } 
+                    
+                  
+                    
+                    break;                    
+                    
+                   case 3:
+                    
+                    if (source.charAt(num_c) == '=') {
+                        tokens.add(new Token(TipoToken.IGUAL, "", null, linea));
                         num_c++;
-                        estado = n+1;
-                            if (source.charAt(num_c) == 'd') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'e') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'm') {
-                                        num_c++;
-                                        estado = n+1;
-                                        if (source.charAt(num_c) == 'a') {
-                                            num_c++;
-                                            estado = n+1;
-                                            if (source.charAt(num_c) == 's') {
-                                                num_c++;
-                                                estado = n+1;
-                                                break;
-                                        }
-                                            break;
-                                    }
-                                        break;
-                                }
-                                    break;
-                            }
-                                break;
-                        }
-                            break;
-                    }
-                    break;
-                case 4:
-                    if (source.charAt(num_c) == 'b') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 5:
-                    if (source.charAt(num_c) == 'c') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'l') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'a') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 's') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'e') {
-                                        num_c++;
-                                        estado = n+1;
-                                        break;
-                                    }
-                                   
-                                }
+                        otro=false;
+                        estado = 0;
+                        break;
+                    }    
+                    
+                    else otro=true;                    
+                    
 
-                            }
+                    if (otro) {
+                        tokens.add(new Token(TipoToken.ASIGNAR, "", null, linea));                        
+                        estado=0;
+                        otro=false;
+                        break;
+                    }   
+                    
+                    break;                    
+                    
+                   case 4:
+                    
+                    if (source.charAt(num_c) == '=') {
+                        tokens.add(new Token(TipoToken.DIFERENTE, "", null, linea));
+                        num_c++;
+                        otro=false;
+                        estado = 0;
+                        break;
+                    }  
+                    
+                    else otro=true;                    
+                    
 
-                        }
+                    if (otro) {
+                        tokens.add(new Token(TipoToken.NEGACION, "", null, linea));                        
+                        estado = 0;
+                        otro=false;
+                        break;
+                    }        
+                    
+                    break;                    
+                                        
+                 
+                    
+                    
+                            
 
-                    }
-                    break;
-                case 6:
-                    if (source.charAt(num_c) == 'd') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 7:
-                    if (source.charAt(num_c) == 'e') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 's') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 't') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'e') {
-                                    num_c++;
-                                    estado = n+1;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 8:
-                    if (source.charAt(num_c) == 'f') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'a') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'l') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 's') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'o') {
-                                        num_c++;
-                                        estado = n+1;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        if (source.charAt(num_c) == 'u') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'n') {
-                                num_c++;
-                                estado = n+1;
-                            }
-                        }
-                    }
-                    break;
-                case 9:
-                    if (source.charAt(num_c) == 'g') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 10:
-                    if (source.charAt(num_c) == 'h') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'i') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'p') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'e') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'r') {
-                                        num_c++;
-                                        estado = n+1;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 11:
-                    if (source.charAt(num_c) == 'i') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'm') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'p') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'r') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'i') {
-                                        num_c++;
-                                        estado = n+1;
-                                        if (source.charAt(num_c) == 'm') {
-                                            num_c++;
-                                            estado = n+1;
-                                            if (source.charAt(num_c) == 'i') {
-                                                num_c++;
-                                                estado = n+1;
-                                                if (source.charAt(num_c) == 'r') {
-                                                    num_c++;
-                                                    estado = n+1;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 12:
-                    if (source.charAt(num_c) == 'j') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 13:
-                    if (source.charAt(num_c) == 'k') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 14:
-                    if (source.charAt(num_c) == 'l') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 15:
-                    if (source.charAt(num_c) == 'm') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'i') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'e') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'n') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 't') {
-                                        num_c++;
-                                        estado = n+1;
-                                        if (source.charAt(num_c) == 'r') {
-                                            num_c++;
-                                            estado = n+1;
-                                            if (source.charAt(num_c) == 'a') {
-                                                num_c++;
-                                                estado = n+1;
-                                                if (source.charAt(num_c) == 's') {
-                                                    num_c++;
-                                                    estado = n+1;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 16:
-                    if (source.charAt(num_c) == 'n') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'u') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'l') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'o') {
-                                    num_c++;
-                                    estado = n+1;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 17:
-                    if (source.charAt(num_c) == 'o') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 18:
-                    if (source.charAt(num_c) == 'p') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'a') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'r') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'a') {
-                                    num_c++;
-                                    estado = n+1;
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 19:
-                    if (source.charAt(num_c) == 'q') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 20:
-                    if (source.charAt(num_c) == 'r') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'e') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 't') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'o') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'r') {
-                                        num_c++;
-                                        estado = n+1;
-                                        if (source.charAt(num_c) == 'n') {
-                                            num_c++;
-                                            estado = n+1;
-                                            if (source.charAt(num_c) == 'a') {
-                                                num_c++;
-                                                estado = n+1;
-                                                if (source.charAt(num_c) == 'r') {
-                                                    num_c++;
-                                                    estado = n+1;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 21:
-                    if (source.charAt(num_c) == 's') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'i') {
-                            num_c++;
-                            estado = n+1;
-                        }
-                    }
-                    break;
-                case 22:
-                    if (source.charAt(num_c) == 't') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 23:
-                    if (source.charAt(num_c) == 'v') {
-                        num_c++;
-                        estado = n+1;
-                        if (source.charAt(num_c) == 'e') {
-                            num_c++;
-                            estado = n+1;
-                            if (source.charAt(num_c) == 'r') {
-                                num_c++;
-                                estado = n+1;
-                                if (source.charAt(num_c) == 'd') {
-                                    num_c++;
-                                    estado = n+1;
-                                    if (source.charAt(num_c) == 'a') {
-                                        num_c++;
-                                        estado = n+1;
-                                        if (source.charAt(num_c) == 'd') {
-                                            num_c++;
-                                            estado = n+1;
-                                            if (source.charAt(num_c) == 'e') {
-                                                num_c++;
-                                                estado = n+1;
-                                                if (source.charAt(num_c) == 'r') {
-                                                    num_c++;
-                                                    estado = n+1;
-                                                    if (source.charAt(num_c) == 'o') {
-                                                        num_c++;
-                                                        estado = n+1;
-                                                        if (source.charAt(num_c) == ' ') {
-                                                            num_c++;
-                                                            estado = n+1;
-                                                            if (source.charAt(num_c) == 'v') {
-                                                                num_c++;
-                                                                estado = n+1;
-                                                                if (source.charAt(num_c) == 'a') {
-                                                                    num_c++;
-                                                                    estado = n+1;
-                                                                    if (source.charAt(num_c) == 'r') {
-                                                                        num_c++;
-                                                                        estado = n+1;
-                                                                        break;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    else {
-                                                        num_c++;
-                                                        estado = n+1;
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 24:
-                    if (source.charAt(num_c) == 'w') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 25:
-                    if (source.charAt(num_c) == 'x') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 26:
-                    if (source.charAt(num_c) == 'y') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-                case 27:
-                    if (source.charAt(num_c) == 'z') {
-                        num_c++;
-                        estado = n+1;
-                    }
-                    break;
-            }
+        
+            }}
 
-            num_c++;
-        }
+            
+        
 
         /*
         Analizar el texto de entrada para extraer todos los tokens
