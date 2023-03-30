@@ -306,49 +306,57 @@ public class Scanner {
                                                 estado = n+1;
                                                 break;
                                         }
+                                            break;
                                     }
+                                        break;
                                 }
+                                    break;
                             }
+                                break;
                         }
+                            break;
                     }
-
-                case n+1:
-
+                    break;
+                case 4:
                     if (source.charAt(num_c) == 'b') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
+                    break;
+                case 5:
                     if (source.charAt(num_c) == 'c') {
                         num_c++;
                         estado = n+1;
-                            if (source.charAt(num_c) == 'l') {
+                        if (source.charAt(num_c) == 'l') {
+                            num_c++;
+                            estado = n+1;
+                            if (source.charAt(num_c) == 'a') {
                                 num_c++;
                                 estado = n+1;
-                                    if (source.charAt(num_c) == 'a') {
+                                if (source.charAt(num_c) == 's') {
+                                    num_c++;
+                                    estado = n+1;
+                                    if (source.charAt(num_c) == 'e') {
                                         num_c++;
                                         estado = n+1;
-                                            if (source.charAt(num_c) == 's') {
-                                                num_c++;
-                                                estado = n+1;
-                                                    if (source.charAt(num_c) == 'e') {
-                                                        num_c++;
-                                                        estado = n+1;
-                                                        break;
-                                                    }
-                                            }
+                                        break;
                                     }
+                                    break;
+                                }
+                                
                             }
-                    }
 
-                case n+1:
+                        }
+
+                    }
+                    break;
+                case 6:
                     if (source.charAt(num_c) == 'd') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 7:
                     if (source.charAt(num_c) == 'e') {
                         num_c++;
                         estado = n+1;
@@ -366,8 +374,8 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 8:
                     if (source.charAt(num_c) == 'f') {
                         num_c++;
                         estado = n+1;
@@ -397,15 +405,14 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 9:
                     if (source.charAt(num_c) == 'g') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 10:
                     if (source.charAt(num_c) == 'h') {
                         num_c++;
                         estado = n+1;
@@ -427,6 +434,8 @@ public class Scanner {
                             }
                         }
                     }
+                    break;
+                case 11:
                     if (source.charAt(num_c) == 'i') {
                         num_c++;
                         estado = n+1;
@@ -460,29 +469,26 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 12:
                     if (source.charAt(num_c) == 'j') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 13:
                     if (source.charAt(num_c) == 'k') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 14:
                     if (source.charAt(num_c) == 'l') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 15:
                     if (source.charAt(num_c) == 'm') {
                         num_c++;
                         estado = n+1;
@@ -516,8 +522,8 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 16:
                     if (source.charAt(num_c) == 'n') {
                         num_c++;
                         estado = n+1;
@@ -535,15 +541,14 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 17:
                     if (source.charAt(num_c) == 'o') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 18:
                     if (source.charAt(num_c) == 'p') {
                         num_c++;
                         estado = n+1;
@@ -560,15 +565,14 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 19:
                     if (source.charAt(num_c) == 'q') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 20:
                     if (source.charAt(num_c) == 'r') {
                         num_c++;
                         estado = n+1;
@@ -602,8 +606,8 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 21:
                     if (source.charAt(num_c) == 's') {
                         num_c++;
                         estado = n+1;
@@ -612,15 +616,14 @@ public class Scanner {
                             estado = n+1;
                         }
                     }
-
-                case n+1:
+                    break;
+                case 22:
                     if (source.charAt(num_c) == 't') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 23:
                     if (source.charAt(num_c) == 'v') {
                         num_c++;
                         estado = n+1;
@@ -679,63 +682,30 @@ public class Scanner {
                             }
                         }
                     }
-
-                case n+1:
+                    break;
+                case 24:
                     if (source.charAt(num_c) == 'w') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 25:
                     if (source.charAt(num_c) == 'x') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 26:
                     if (source.charAt(num_c) == 'y') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
+                    break;
+                case 27:
                     if (source.charAt(num_c) == 'z') {
                         num_c++;
                         estado = n+1;
-                        break;
                     }
-
-                case n+1:
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-
-                    break;
-                case 6:
-
-                    break;
-                case 7:
-
-                    break;
-                case 8:
-
-                    break;
-                case 9:
-
-                    break;
-                case 10:
-
-                    break;
-                case 11:
-
-                    break;
-                case 12:
-
                     break;
             }
 
