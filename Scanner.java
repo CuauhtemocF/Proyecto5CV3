@@ -72,7 +72,7 @@ public class Scanner {
     List<Token> scanTokens() {
         //Aquí va el corazón del scanner.
 
-        int num_c = 0, estado = 0;
+        int num_c = 0, estado = 0, lguardado =0;
 
 //        for (int i = 0; i < source.length(); i++) {
 //            carac = source.charAt(i);
@@ -82,14 +82,128 @@ public class Scanner {
 //        }
         while (num_c < source.length()) {
 //System.out.println("\nya pase "+num_c);
+
             switch (estado) {
                 case 0:
-
-                    if (source.charAt(num_c) == '.') {
+                    
+                    lguardado=num_c;
+                    
+                    if (source.charAt(num_c) == '<') {
                         num_c++;
-                        System.out.println("\ntamanio de la cadena: " + source.length());
                         estado = 1;
+                        break;
                     }
+                    
+                    if (source.charAt(num_c) == '=') {
+                        num_c++;
+                        estado = 5;
+                        break;
+                    }  
+                    
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 7;
+                        break;
+                    }  
+
+                    if (source.charAt(num_c) == '!') {
+                        num_c++;
+                        estado = 10;
+                        break;
+                    }                     
+
+                    if (source.charAt(num_c) == '(') {
+                        num_c++;
+                        estado = 13;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == ')') {
+                        num_c++;
+                        estado = 14;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '{') {
+                        num_c++;
+                        estado = 15;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '}') {
+                        num_c++;
+                        estado = 16;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '\'') {
+                        num_c++;
+                        estado = 17;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == ';') {
+                        num_c++;
+                        estado = 18;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '/') {
+                        num_c++;
+                        estado = 19;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 23;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+
+
+                    if (source.charAt(num_c) == '>') {
+                        num_c++;
+                        estado = 6;
+                        break;
+                    } 
+                    
 
                     break;
 
