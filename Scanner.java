@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package interprete;
 
 import java.util.ArrayList;
@@ -10,17 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Scanner {
-
     private final String source;
-
     private final List<Token> tokens = new ArrayList<>();
-
     private int linea = 1;
-
     private char carac;
-
     private static final Map<String, TipoToken> palabrasReservadas;
-
     static {
         palabrasReservadas = new HashMap<>();
         palabrasReservadas.put("y", TipoToken.Y);
