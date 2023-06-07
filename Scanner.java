@@ -1,4 +1,4 @@
-package interprete;
+package mx.ipn.escom.compiladores;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,9 +7,10 @@ import java.util.Map;
 
 public class Scanner {
     private final String source;
-    private final List<Token> tokens = new ArrayList<>();
-    private static final Map<String, TipoToken> palabrasReservadas;
 
+    private final List<Token> tokens = new ArrayList<>();
+
+    private static final Map<String, TipoToken> palabrasReservadas;
     static {
         palabrasReservadas = new HashMap<>();
         palabrasReservadas.put("select", TipoToken.SELECT);
@@ -17,31 +18,31 @@ public class Scanner {
         palabrasReservadas.put("distinct", TipoToken.DISTINCT);
     }
 
-    Scanner(String source) {
-        //  this.carac = ' ';
-        this.source = source + "";
+    Scanner(String source){
+        this.source = source + " ";
     }
 
-    List<Token> scanTokens() {
+    List<Token> scanTokens(){
         int estado = 0;
         char caracter = 0;
         String lexema = "";
         int inicioLexema = 0;
 
-        for (int i = 0; i < source.length(); i++) {
+        for(int i=0; i<source.length(); i++){
             caracter = source.charAt(i);
-//System.out.println("\nya pase "+num_c);
 
-            switch (estado) {
+            switch (estado){
                 case 0:
-
-                    if (caracter == '*') {
+                    if(caracter == '*'){
                         tokens.add(new Token(TipoToken.ASTERISCO, "*", i + 1));
-                    } else if (caracter == ',') {
+                    }
+                    else if(caracter == ','){
                         tokens.add(new Token(TipoToken.COMA, ",", i + 1));
-                    } else if (caracter == '.') {
+                    }
+                    else if(caracter == '.'){
                         tokens.add(new Token(TipoToken.PUNTO, ".", i + 1));
-                    } else if (Character.isAlphabetic(caracter)) {
+                    }
+                    else if(Character.isAlphabetic(caracter)){
                         estado = 1;
                         lexema = lexema + caracter;
                         inicioLexema = i;
@@ -49,13 +50,15 @@ public class Scanner {
                     break;
 
                 case 1:
-                    if (Character.isAlphabetic(caracter) || Character.isDigit(caracter)) {
+                    if(Character.isAlphabetic(caracter) || Character.isDigit(caracter) ){
                         lexema = lexema + caracter;
-                    } else {
+                    }
+                    else{
                         TipoToken tt = palabrasReservadas.get(lexema);
-                        if (tt == null) {
+                        if(tt == null){
                             tokens.add(new Token(TipoToken.IDENTIFICADOR, lexema, inicioLexema + 1));
-                        } else {
+                        }
+                        else{
                             tokens.add(new Token(tt, lexema, inicioLexema + 1));
                         }
 
@@ -68,9 +71,12 @@ public class Scanner {
             }
         }
         tokens.add(new Token(TipoToken.EOF, "", source.length()));
+
         return tokens;
     }
+
 }
+
         /*
         Analizar el texto de entrada para extraer todos los tokens
         y al final agregar el token de fin de archivo

@@ -57,7 +57,7 @@ public class ParsingTable {
                 return row.get(terminal);
             }
         }
-        return null; // No action found for the given non-terminal and terminal
+        return null;
     }
 
 }
