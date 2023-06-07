@@ -1,4 +1,3 @@
-
 package mx.ipn.escom.compiladores;
 
 import java.io.BufferedReader;
@@ -12,14 +11,6 @@ public class Principal {
 
     public static void main(String[] args) throws IOException {
         ejecutarPrompt();
-    }
-
-    private static void ejecutarArchivo(String path) throws IOException {
-        byte[] bytes = Files.readAllBytes(Paths.get(path));
-        ejecutar(new String(bytes, Charset.defaultCharset()));
-
-        // Se indica que existe un error
-        if(existenErrores) System.exit(65);             
     }
 
     private static void ejecutarPrompt() throws IOException{
@@ -42,9 +33,8 @@ public class Principal {
 
         /*for(Token token : tokens){
             System.out.println(token);
-            System.out.println(source);
+        }*/
 
-        } */
         Parser parser = new Parser(tokens,parsingTable);
         parser.parse();
     }
@@ -64,5 +54,5 @@ public class Principal {
         );
         existenErrores = true;
     }
-    
+
 }
