@@ -72,11 +72,14 @@ public class Parser
                 }
             }
             }
-            if()
+            if(!hayErrores && prenanalisis.equals(finCadena))
             {
-
+            System.out.println("Consulta valida");
             }
         }
+        private boolean isTerminal(String simbolo)
+        {
+            return simbolo.equals("SELECT") || simbolo.equals("DISTINCT") ||  simbolo.equals("ASTERISCO") || simbolo.equals("IDENTIFICADOR") || simbolo.equals("COMA") || simbolo.equals("PUNTO") || simbolo.equals("FROM") || simbolo.equals("EOF");
+        }
     }
-    ><
-}
+    }
